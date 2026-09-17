@@ -11,7 +11,7 @@ Routes:
 ## Dynamic review flow
 Submissions start hidden. The facilitator categorizes each as Needs work, Exemplar, or Discuss on `/submissions`. Reviewed items appear on Day 2 slides 6, 7, and 8 respectively. The visual frame preserves the approved Google Slides design while the reviewed cards remain live HTML.
 
-This build uses browser local storage so it works without infrastructure during design review. Before a multi-device workshop, replace the two small `read`/`write` storage helpers in `src.jsx` with a shared persistent API (Vercel KV/Supabase) so attendee phones and the presenter browser share state.
+Live sessions sync across devices over the same MQTT + local cache pattern used by the original workshop app. EMQX is primary, HiveMQ fallback; BroadcastChannel handles same-device tabs. Set `hs_active_session_id` in localStorage to isolate a workshop session. Messages are QoS 0 and non-retained, so facilitator local storage remains the durable session copy; export submissions after the workshop.
 
 ## Run
 `npm install && npm run dev`
