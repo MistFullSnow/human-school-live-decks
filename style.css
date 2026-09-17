@@ -2,3 +2,10 @@
 .native-slide{position:relative;width:min(100vw,177.7778vh);height:min(56.25vw,100vh);overflow:hidden;background:#f7f6f1}.el{position:absolute;box-sizing:border-box}.shape{display:flex;white-space:pre-wrap;overflow:hidden;line-height:1.12}.shape span{white-space:pre-wrap}.video{display:grid;place-items:center;background:#111;color:#fff;font-size:12px;letter-spacing:.15em}.stage>.native-slide{flex:none}
 .native-slide.dark{background:#080808}
 .window{margin-top:40px;border:1px solid #aaa;background:#fff;padding:18px;display:flex;align-items:center;gap:22px}.window>b{font-size:11px;letter-spacing:.12em}.window label{display:flex;align-items:center;gap:8px}.window input[type=datetime-local]{width:auto;margin:0;padding:9px;font-size:12px}.toggle input{width:18px;height:18px}
+/* Presentation geometry: type scales to the 16:9 slide, never the browser width. */
+.native-slide{--slide-vw:min(1vw,1.777778vh);box-shadow:0 0 0 1px #2b2b2b;isolation:isolate}
+.shape{justify-content:flex-start;padding:0;letter-spacing:normal}
+.shape.rectangle,.shape.round_rectangle{padding:.16% .42%}
+.native-slide.dark .shape.rectangle,.native-slide.dark .shape.round_rectangle{border-color:#303030}
+.stage{background:#080808}
+.counter{right:1.4vw;bottom:1.4vh;border:1px solid #333;background:#080808;color:#bdbdbd;font-weight:700;min-width:54px;text-align:center}
