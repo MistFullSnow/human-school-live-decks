@@ -28,3 +28,7 @@
 .video-hotkeys{border:1px solid #333;padding:12px}.video-hotkeys p{margin:10px 0;display:flex;align-items:center;gap:8px;font-size:12px}.video-hotkeys kbd{background:#f7f6f1;color:#0a0a0a;padding:5px 8px;font:700 12px Montserrat}.video-hotkeys em{color:#aaa;font-size:11px}
 .audience-video-controls{position:absolute;z-index:12;right:6.67%;bottom:8%;display:flex;gap:8px}.audience-video-controls button{padding:10px 14px;background:#0a0a0a;color:#fff;border:1px solid #444;font-size:10px;box-shadow:4px 4px 0 #d9d7d0}.audience-video-controls button:hover{background:#fff;color:#0a0a0a;border-color:#0a0a0a;transform:translateY(-2px)}
 .video-frame{pointer-events:auto!important}
+/* Presenter QA: keep the scaled next-slide thumbnail legible and contained. */
+.presenter aside{overflow-y:auto}
+.next-preview{container-type:inline-size;overflow:hidden}
+.next-preview .native-slide{--slide-vw:1cqw;overflow:hidden}
