@@ -9,3 +9,19 @@
 .native-slide.dark .shape.rectangle,.native-slide.dark .shape.round_rectangle{border-color:#303030}
 .stage{background:#080808}
 .counter{right:1.4vw;bottom:1.4vh;border:1px solid #333;background:#080808;color:#bdbdbd;font-weight:700;min-width:54px;text-align:center}
+/* Motion language: restrained wipes, staggered content, crisp hover reversals. */
+.native-slide{animation:slideIn .48s cubic-bezier(.2,.75,.2,1) both}
+.native-slide:after{content:"";position:absolute;inset:0;background:#111;transform-origin:right;animation:wipe .55s cubic-bezier(.7,0,.2,1) both;pointer-events:none;z-index:20}
+.shape{animation:elementIn .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(90ms + var(--i)*12ms)}
+.video-frame{border:0;background:#090909;box-shadow:0 14px 40px #0002;z-index:3}
+@keyframes slideIn{from{opacity:.65;transform:translateX(1.5%)}to{opacity:1;transform:none}}
+@keyframes wipe{0%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+@keyframes elementIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.native-slide,.native-slide:after,.shape{animation:none}}
+.shape.round_rectangle{transition:transform .2s ease,filter .2s ease}.shape.round_rectangle:hover{transform:translateY(-2px);filter:contrast(1.08)}
+/* Correct the first ladder card inset and preserve the shared 6.67% grid margin. */
+.slide-1-16 [style*="left: 6.666"]{clip-path:inset(0)}
+.slide-1-16{padding:0}.slide-1-16 .rectangle{max-width:86.67%}
+.live-moment{position:absolute;left:17.5%;right:17.5%;top:44%;height:27%;border:1px solid #bdbbb4;background:#f7f6f1;z-index:4;display:grid;grid-template-columns:1fr 1.8fr;grid-template-rows:1fr 1fr;padding:2.4%;align-items:center;box-shadow:12px 12px 0 #e1dfd8;animation:elementIn .6s .35s both}
+.live-moment b{font-size:calc(38 * var(--slide-vw));line-height:1}.live-moment span{font-weight:800;letter-spacing:.16em;font-size:calc(10 * var(--slide-vw))}.live-moment i{grid-column:2;font-size:calc(12 * var(--slide-vw));color:#5c5c5c}.live-moment.demo{background:#0a0a0a;color:#f7f6f1;border:0}.live-moment.demo b{font-size:calc(21 * var(--slide-vw));letter-spacing:.02em}.live-moment.demo i{color:#aaa}
+.presenter{height:100vh;background:#0a0a0a;color:#f7f6f1;display:grid;grid-template-columns:minmax(0,2.4fr) minmax(300px,1fr);gap:18px;padding:18px}.presenter-screen{display:grid;place-items:center;min-width:0}.presenter-screen .stage{width:100%;height:auto;aspect-ratio:16/9}.presenter-screen .native-slide{width:100%;height:100%}.presenter aside{border-left:1px solid #333;padding:8px 18px;display:flex;flex-direction:column;gap:18px;min-height:0}.presenter-brand,.presenter small{font-size:10px;font-weight:700;letter-spacing:.15em;color:#999}.presenter-controls{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}.presenter-controls button,.audience-link{background:#f7f6f1;color:#0a0a0a;text-align:center;padding:12px;text-decoration:none;font:700 11px Montserrat;border:0}.presenter-note{border-top:4px solid #f7f6f1;padding-top:15px}.presenter-note p{font-size:17px;line-height:1.45}.next-preview{display:grid;gap:8px}.next-preview .native-slide{width:100%;height:auto;aspect-ratio:16/9;pointer-events:none}.presenter label{color:#999}.presenter input{background:#161616;color:#fff;border-color:#333;padding:10px;font-size:12px}.presenter code{font-size:10px;word-break:break-all;color:#777}@media(max-width:850px){.presenter{grid-template-columns:1fr;overflow:auto}.presenter aside{border-left:0;border-top:1px solid #333}.presenter-screen{min-height:45vw}}
